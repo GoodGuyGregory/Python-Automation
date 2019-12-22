@@ -11,6 +11,7 @@
 
 import sys
 import pyperclip
+
 PASSWORDS = {'email': 'EMAILPASSWORD',
              'blog': 'BLOGPASSWORD',
              'luggage': '12345'
