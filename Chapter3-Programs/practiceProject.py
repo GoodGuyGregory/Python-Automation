@@ -1,23 +1,30 @@
 # Methods
+
+# Solves with Recursion
+
+
 def collatz(number):
-
-    print("you entered: " + str(number))
+    # print("Checking Numbers")
     #  if number is even collatz should print even
-    if number % 2 == 0:
-        print(str(number) + " is even")
-        return number // 2
+    # Base Case
+    if number == 1:
+        return number
+    else:
+        if number % 2 == 0:
+            print(str(number) + " is even")
+            # print("Continue working....")
+            return collatz(number // 2)
 
-    elif number % 2 == 1:
-        print(str(number) + " is odd")
-        return 3 * number + 1
+        elif number % 2 == 1:
+            print(str(number) + " is odd")
+            # print("Continue working....")
+            return collatz(3 * number + 1)
 
 # Main method
 
 
 def main():
-    print("enter a number:")
-    numberToCheck = int(input())
-
+    numberToCheck = int(input("Enter Number: "))
     print(collatz(numberToCheck))
 
 
