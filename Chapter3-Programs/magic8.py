@@ -24,6 +24,8 @@ def getAnswer(answerNumber):
         return 'Very doubtful'
 
 
-r = random.randint(1, 9)
-fortune = getAnswer(r)
-print(fortune)
+# r = random.randint(1, 9)
+# fortune = getAnswer(r)
+# print(fortune)
+
+print(getAnswer(random.randint(1, 9)))
