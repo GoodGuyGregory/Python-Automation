@@ -25,8 +25,11 @@ def collatz(number):
 
 
 def main():
-    numberToCheck = int(input("Enter Number: "))
-    print(collatz(numberToCheck))
+    try:
+        numberToCheck = int(input("Enter Number: "))
+        print(collatz(numberToCheck))
+    except ValueError:
+        print("Error: must enter an integer value ")
 
 
 main()
