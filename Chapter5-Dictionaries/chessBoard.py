@@ -10,9 +10,77 @@ chessBoard = {'1a': 'wrook', '2a': 'wpawn', '3a': '', '4a': '', '5a': '', '6a': 
               '1h': 'wrook', '2h': 'wpawn', '3h': '', '4h': '', '5h': '', '6h': '', '7h': 'bpawn', '8h': 'brook',
               }
 
+whitePieces = {}
+blackPieces = {}
+
+
+def findWhitePieces(piece):
+    if piece[1:] == 'rook':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+    elif piece[1:] == 'pawn':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+    elif piece[1:] == 'knight':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+    elif piece[1:] == 'bishop':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+    elif piece[1:] == 'queen':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+    elif piece[1:] == 'king':
+        whitePieces.setdefault(piece, 0)
+        whitePieces[piece] = whitePieces[piece] + 1
+
+
+def findBlackPieces(piece):
+    if piece[1:] == 'rook':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+    elif piece[1:] == 'pawn':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+    elif piece[1:] == 'knight':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+    elif piece[1:] == 'bishop':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+    elif piece[1:] == 'queen':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+    elif piece[1:] == 'king':
+        blackPieces.setdefault(piece, 0)
+        blackPieces[piece] = blackPieces[piece] + 1
+
+
+colorChecker = {
+    'w': findWhitePieces,
+    'b': findBlackPieces,
+}
+
+
+def countPieces(piecesDict):
+    count = 0
+    for v in piecesDict.values():
+        count += v
+    return count
+
+
+def printItems():
+    print('valid WHITE pieces found:')
+    for k, v in whitePieces.items():
+        print(str(v) + ' ' + k + 's')
+    print('valid BLACK pieces found: ')
+    for k, v in whitePieces.items():
+        print(str(v) + ' ' + k + 's')
+
 
 def isValidChessBoard(chessBoard):
-    for k, v in chessBoard.items():
+
+    for k in chessBoard.items():
         # check validity board size is 8 x 8 and their lables
         count = 0
         for k in chessBoard:
@@ -27,13 +95,22 @@ def isValidChessBoard(chessBoard):
             else:
                 print('invalid space found')
     if count == 64:
-        print('Board has valid number of spaces')
+        print('Board has valid number of spaces \n')
+    print('Checking Contents of Board (Pieces)')
+    for k, v in chessBoard.items():
+            # Check piece namea and quantity
+        # pprint.pprint('Piece Found:' + v)
+        if v != '':
+            colorPiece = v[0]
+            # print(colorPiece)
+            func = colorChecker.get(
+                colorPiece, lambda key: print("Invalid Piece Found at " + str(k)))
+            func(v)
 
-        # pprint.pprint('Space: ' + k + ' Piece ' + str(v))
-
-        # count pawns of each color
-
-        # count pieces
+        elif v == '':
+            print('Empty Space Found at ' + str(k))
+    if countPieces(whitePieces) == 16 and countPieces(blackPieces) == 16:
+        printItems()
 
 
 isValidChessBoard(chessBoard)
