@@ -1,5 +1,7 @@
 
-# def addToInventory(inventory, addedItems):
+def addToInventory(inventory, addedItems):
+    for i in range(len(addedItems)):
+        print(addedItems[i])
 
 
 def displayInventory(playerInventory):
@@ -18,6 +20,7 @@ def main():
     # example loot
     dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
 
+    addToInventory(inv, dragonLoot)
     displayInventory(inv)
 
 
