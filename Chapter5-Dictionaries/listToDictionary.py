@@ -1,14 +1,13 @@
 
 def addToInventory(inventory, addedItems):
-    print('Adding Loot to Inventory:')
+    print('adding loot to your inventory:')
 
     for i in range(len(addedItems)):
         if addedItems[i] in inventory:
             itemFound = addedItems[i]
             inventory[itemFound] = inventory[itemFound] + 1
-            print(str(addedItems[i]) + '')
-        elif addedItems[i] not in inventory:
-
+            print(str(addedItems[i]) + ' added to inventory')
+        # elif addedItems[i] not in inventory:
             # append with setDefault()
 
 
