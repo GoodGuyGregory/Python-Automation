@@ -1,7 +1,15 @@
 
 def addToInventory(inventory, addedItems):
+    print('Adding Loot to Inventory:')
+
     for i in range(len(addedItems)):
-        print(addedItems[i])
+        if addedItems[i] in inventory:
+            itemFound = addedItems[i]
+            inventory[itemFound] = inventory[itemFound] + 1
+            print(str(addedItems[i]) + '')
+        elif addedItems[i] not in inventory:
+
+            # append with setDefault()
 
 
 def displayInventory(playerInventory):
