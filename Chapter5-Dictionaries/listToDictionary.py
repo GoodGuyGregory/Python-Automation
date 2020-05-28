@@ -7,8 +7,12 @@ def addToInventory(inventory, addedItems):
             itemFound = addedItems[i]
             inventory[itemFound] = inventory[itemFound] + 1
             print(str(addedItems[i]) + ' added to inventory')
-        # elif addedItems[i] not in inventory:
-            # append with setDefault()
+        elif addedItems[i] not in inventory:
+            print('New item found!')
+            # append new items with setDefault()
+            newItem = addedItems[i]
+            print(str(newItem))
+            inventory[newItem] = 1
 
 
 def displayInventory(playerInventory):
