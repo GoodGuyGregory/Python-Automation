@@ -48,4 +48,10 @@ Justifying Strings:
 
 you can also use a special character argument to hold elements in the empty space `'Some text'.rjust(20, '=')`
 
+Stripping Off Elements of String:
 
+* `strip()`: removes whitespaces and new lines as well as tabs from a string. this can be used with specific sides too. such as `lstrip()` and `rstrip()`. Strip can also take an argument such as `spam.strip('specific word')` to be removed from ths string
+
+Checking Unicode values:
+
+* `ord('A')`: returns the ASCII value for the character in question
