@@ -52,6 +52,9 @@ Stripping Off Elements of String:
 
 * `strip()`: removes whitespaces and new lines as well as tabs from a string. this can be used with specific sides too. such as `lstrip()` and `rstrip()`. Strip can also take an argument such as `spam.strip('specific word')` to be removed from ths string
 
+you can also remove additional text at a specific letter and partion it with the `.partition('<selection>')` method
+
 Checking Unicode values:
 
 * `ord('A')`: returns the ASCII value for the character in question
+

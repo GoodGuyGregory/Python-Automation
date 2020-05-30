@@ -1,0 +1,1 @@
+(Pyperclip)[https://pypi.org/project/pyperclip/]
