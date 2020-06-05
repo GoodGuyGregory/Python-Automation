@@ -1,4 +1,4 @@
-#! python3
+#! /Users/user/.pyenv/versions/3.7.5/bin/python3
 # passwordLocker.py - an insecure password locker program.
 
 import sys
@@ -14,6 +14,6 @@ account = sys.argv[1]  # first command line arg is the account name
 
 if account in PASSWORDS:
     pyperclip.copy(PASSWORDS[account])
-    print('Password for ' + account + 'copied to clipboard.')
+    print('Password for ' + account + ' copied to clipboard.')
 else:
     print('THere is no account named ' + account)
