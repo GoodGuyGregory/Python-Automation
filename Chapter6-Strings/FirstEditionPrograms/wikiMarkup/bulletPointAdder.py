@@ -12,4 +12,5 @@ lines = text.split('\n')
 for i in range(len(lines)):  # loop through indexes in the "lines" list
     lines[i] = '* ' + lines[i]
 text = '\n'.join(lines)
+#  adds modified text to the clipboard for pasting
 pyperclip.copy(text)
