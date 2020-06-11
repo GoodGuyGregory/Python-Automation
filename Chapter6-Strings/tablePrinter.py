@@ -21,10 +21,12 @@ def printTable(tableData):
         largest = ''
 
     #  print elements with right justification:
-    for k in range(len(tableData)):
-        for l in range(len(tableData[i])):
-            print(str(tableData[k][l]).rjust(colWidths[0]) + str(tableData[1][l]).rjust(colWidths[0]
-                                                                                        ) + str(tableData[2][l].rjust(colWidths[0] + colWidths[1])))
+    k = 0
+    while k < 1:
+        for l in range(len(tableData[k])):
+            print(str(tableData[k][l]).rjust(colWidths[0]) + str(tableData[k+1][l]).rjust(colWidths[0]
+                                                                                          ) + str(tableData[k+2][l].rjust(colWidths[0] + colWidths[1])))
+        k += 1
 
 
 def main():
