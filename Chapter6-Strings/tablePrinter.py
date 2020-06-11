@@ -16,13 +16,15 @@ def printTable(tableData):
                 # print(largest)
             #  set length for colWidths to that value
         colWidths[i] = len(largest)
-        print(str(colWidths[i]))
+        # print(str(colWidths[i]))
         # clear the largest value
         largest = ''
 
     #  print elements with right justification:
-    print(str(tableData[0][0]) + str(tableData[1][1]).rjust(colWidths[0]
-                                                            ) + str(tableData[2][2].rjust(colWidths[0] + colWidths[1])))
+    for k in range(len(tableData)):
+        for l in range(len(tableData[i])):
+            print(str(tableData[k][l]).rjust(colWidths[0]) + str(tableData[1][l]).rjust(colWidths[0]
+                                                                                        ) + str(tableData[2][l].rjust(colWidths[0] + colWidths[1])))
 
 
 def main():
@@ -37,6 +39,7 @@ def main():
     #         for j in range(len(tableData[0])):
     #             print(tableData[0][j])
     #     i += 1
+    # print(len(tableData))
 
 
 main()
