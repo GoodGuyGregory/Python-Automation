@@ -24,8 +24,10 @@ def printTable(tableData):
     k = 0
     while k < 1:
         for l in range(len(tableData[k])):
-            print(str(tableData[k][l]).rjust(colWidths[0]) + str(tableData[k+1][l]).rjust(colWidths[0]
-                                                                                          ) + str(tableData[k+2][l].rjust(colWidths[0] + colWidths[1])))
+            # adjusts for three column layout
+            print(str(tableData[k][l]).rjust(colWidths[0])
+             + str(tableData[k+1][l]).rjust(colWidths[0])
+              + str(tableData[k+2][l].rjust(colWidths[0] + colWidths[1])))
         k += 1
 
 
