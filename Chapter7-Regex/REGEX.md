@@ -35,5 +35,6 @@ Method | Usage
 ------- | ------
 `search()` | used to find the first occurance of a a regular expression object
 `findall()` | returns the strings of every match in the searched string. the default return type is a list of strings as long as there are no groups in the regular expression. such as in this example `phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') # has no groups` if groups exist then findall will return a list of tuples
+`sub()` | substitutes new text in place of those patterns. the first argument is a string to replace any matches. the second is the string of the regex. `personREGEX = re.compile(r'I')` here using `sub()` you can replace the *'I'* with your name `personREGEX.sub('YOURNAME', 'I was late today and I will try to wake up early for my shifts I am sorry')`
 
 [Python Regex Tester](https://pythex.org/)
