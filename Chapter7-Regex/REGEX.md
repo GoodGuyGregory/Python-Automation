@@ -1,6 +1,5 @@
 ## Regex in Python
 
-
 all regular expressions in python require an import of the **re** module as `import re`
 create and compile regex objects in order to use regex in python with the `regexVar = re.compile(r'<REGEX>')`
 
@@ -35,5 +34,8 @@ Method | Usage
 ------- | ------
 `search()` | used to find the first occurance of a a regular expression object
 `findall()` | returns the strings of every match in the searched string. the default return type is a list of strings as long as there are no groups in the regular expression. such as in this example `phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') # has no groups` if groups exist then findall will return a list of tuples
+
+**Regex Case-Insensitive Matching**
+
 
 [Python Regex Tester](https://pythex.org/)
