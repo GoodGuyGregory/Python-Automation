@@ -35,6 +35,13 @@ Method | Usage
 ------- | ------
 `search()` | used to find the first occurance of a a regular expression object
 `findall()` | returns the strings of every match in the searched string. the default return type is a list of strings as long as there are no groups in the regular expression. such as in this example `phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') # has no groups` if groups exist then findall will return a list of tuples
-`sub()` | substitutes new text in place of those patterns. the first argument is a string to replace any matches. the second is the string of the regex. `personREGEX = re.compile(r'I')` here using `sub()` you can replace the *'I'* with your name `personREGEX.sub('YOURNAME', 'I was late today and I will try to wake up early for my shifts I am sorry')`
+`sub()` | substitutes new text in place of those patterns. the first argument is a string to replace any matches. the second is the string of the regex. `personREGEX = re.compile(r'I')` here using `sub()` you can replace the *'I'* with your name `personREGEX.sub('YOURNAME', 'I was late today and I will try to wake up early for my shifts I am sorry')`. you can also replace sections of a group with examples such as this `agentNamesRegex = re.compile(r'Agent (\w)\w*')` `agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that  Agent Eve knew Agent Bob was a double Agent')`
+`re.VERBOSE` | this passed to the `re.compile()` method allows for verbose mode to be used for forming and commenting regular expressions. instead of using a single line method which can make things more complex and harder to read without documention. turning this `confusingPhoneREGEX = re.compile(r'((\d{3}|\(\d{3}\)))?(\s|-\.)?\d{3}(\s|-\.)\d{4}(\s*(ext|x|ext.)\s*\d{2,5})?)')`  into something more like what is featured on *pg 164*
+
+**Combining Multiple Regex Expressions**
+
+If the desire to combine multiple limitions on REGEX expressions is your bag you can use the pipe operator to apply multiple regex limitions in such a fashion
+
+`someRegexExpression = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE )`
 
 [Python Regex Tester](https://pythex.org/)
