@@ -15,10 +15,10 @@ searchDocument = pyperclip.paste()
 phoneRegex = re.compile(r'''(
     (\d{3}|\(d{3}\))?  #area code and optional parenthesis
     (\s|-|\.)?         # seperator can be a (space | hyphen | . )
-    \d{3}              # first three digits of the phone number
+    (\d{3})              # first three digits of the phone number
     (\s|-|\.)          # seperator of a (space | hyphen | . )
-    \d{4}              # remaining 4 digits of the telephone number
-    (\s*(ext|x|ext.)\s*\d{2,5})? # matches the extension 
+    (\d{4})              # remaining 4 digits of the telephone number
+    (\s*(ext|x|ext.)\s*(\d{2,5}))? # matches the extension 
 )''', re.VERBOSE)
 
 emailRegex = re.compile(r'''(
@@ -37,12 +37,21 @@ matches = []
 
 # match and add groups of found numbers 
 for groups in phoneRegex.findall(textToSearch):
-    phoneNumber = '-'.join(groups[1],groups[3], groups[5])
+    phoneNumber = '-'.join([groups[1], groups[3], groups[5]])
     if groups[8] != '':
         phoneNumber += ' x' + groups[8]
     matches.append(phoneNumber)
 
 for groups in emailRegex.findall(textToSearch):
     matches.append(groups[0])
+    
+#  Add the found items from the text searched to the clipboard for displaying
+if len(matches) > 0:
+    pyperclip.copy('\n'.join(matches))
+    print('Copied to clipboard:')
+    print('\n'.join(matches))
+else:
+    print('No phone numbers or email addresses found.')
+    
     
 
