@@ -28,3 +28,21 @@ emailRegex = re.compile(r'''(
     (\.[a-zA-Z]{2,4}) # dot-something (.co/.edu/.org/.com) etc
 )''', re.VERBOSE)
 
+#  Locate the emails and phone numbers from the clipboard
+# convert to string 
+textToSearch = str(pyperclip.paste())
+
+# stores all found items from the text 
+matches = []
+
+# match and add groups of found numbers 
+for groups in phoneRegex.findall(textToSearch):
+    phoneNumber = '-'.join(groups[1],groups[3], groups[5])
+    if groups[8] != '':
+        phoneNumber += ' x' + groups[8]
+    matches.append(phoneNumber)
+
+for groups in emailRegex.findall(textToSearch):
+    matches.append(groups[0])
+    
+
