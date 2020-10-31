@@ -3,8 +3,9 @@
 # strongPasswordDectection: checks whether
 # a copied password or entered password is strong.
 
-import re, pyperclip
-
+import re
+import time
+import pyperclip
 
 
 def main():
@@ -15,7 +16,6 @@ def main():
     #  has at least one digit
 
     def strongPasswordChecker():
-
         # Password REGEXs
         #  is at least 8 characters long
         CharCountRegex = re.compile(r'.{8,}')
@@ -24,17 +24,37 @@ def main():
         #  has at least one digit
         DigitRegex = re.compile(r'[0-9]')
 
-         print("checking criteria...")
+        print("checking length...")
 
         # Check input from the user:
         passwordToCheck = pyperclip.paste()
-        mo1 = passwordRegex.search(passwordToCheck);
-        mo1.group()
-        if mo1 === true:
-            print("Great Password")
+        criteria1 = CharCountRegex.search(passwordToCheck)
+
+        criteria2 = UpperLettersRegex.search(passwordToCheck)
+
+        criteria3 = DigitRegex.search(passwordToCheck)
+
+        if criteria1 != None:
+            print("great your password has at least eight chars")
+            print("checking contents...")
+            time.sleep(2)
+            if criteria2 != None:
+                print(
+                    "great your password also contains uppercase and lowercase letters")
+                print("checking for numeric values in your password...")
+                time.sleep(2)
+                if criteria3 != None:
+                    print("your password is awesome. use it!")
+                else:
+                    print("your password needs to contain numbers to be strong")
+            else:
+                print("your password is long enough but...")
+                print("it needs both uppercase and lowercase letters")
         else:
-            print("You can make a Better Password")
-            print("Make it at least Eight Characters for Starters")
+            print("you can make a better password...")
+            print("make it at least eight characters for starters")
+
+    strongPasswordChecker()
 
 
 main()
