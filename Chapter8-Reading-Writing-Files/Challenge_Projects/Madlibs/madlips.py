@@ -31,8 +31,19 @@ def main():
                 finishedMadlib.write(str(words[i]) + " ")
         else:
             finishedMadlib.write(str(words[i]) + " ")
+
     finishedMadlib.close()
     madlibs.close()
+
+    finishedMadlib = open('finishedMadlib.txt', 'r')
+    # print the madlibs to the screen:
+    submittedWords = finishedMadlib.readline()
+    #  display the content
+    print()
+    print('=================================')
+    print(submittedWords)
+
+    finishedMadlib.close()
 
 
 main()
