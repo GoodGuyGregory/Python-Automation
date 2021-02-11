@@ -1,12 +1,16 @@
 import os
+import re
 
 
 def main():
-    currentDirectory = os.getcwd()
-    filesToSearch = os.listdir(currentDirectory)
+    allFilesInCWD = os.listdir(os.getcwd())
+    fileRegex = re.compile(r'.*.txt')
 
-    for filetoSearch in filesToSearch:
-        print(filetoSearch)
+    textFilesinDir = []
+    for filetoSearch in allFilesInCWD:
+        textFile = fileRegex.search(filetoSearch)
+        if textFile != None:
+            textFilesinDir.append(textFile)
 
 
 main()
