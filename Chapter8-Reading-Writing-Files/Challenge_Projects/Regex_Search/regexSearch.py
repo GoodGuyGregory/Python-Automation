@@ -20,7 +20,7 @@ def main():
     # determine custom regex:
     lookingFor = input(
         'Enter a REGEX to Search These %s Files: ' % len(textFilesinDir))
-    userRegex = re.compile(r'[%s]' % lookingFor)
+    userRegex = re.compile(r'%s' % lookingFor)
 
     print("===============================================")
 
@@ -29,9 +29,23 @@ def main():
         # open the file
         openedFile = open(filetoSearch, 'r')
 
-        linesOfFile = openedFile.readline()
+        linesOfFile = openedFile.read()
 
         print("Searching \"%s\" with REGEX: %s" % (filetoSearch, lookingFor))
+        print("===============================================")
+        count = 0
+        foundItems = []
+        foundInstance = userRegex.findall(linesOfFile, re.MULTILINE)
+        if foundInstance:
+            count += 1
+            foundItems.append(foundInstance)
+        else:
+            print("No Matches for \"%s\": " % lookingFor)
+
+        if len(foundItems) != 0:
+            for foundItem in foundItems:
+                print(foundItem)
+        openedFile.close()
         print("===============================================")
 
 
