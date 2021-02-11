@@ -22,7 +22,17 @@ def main():
         'Enter a REGEX to Search These %s Files: ' % len(textFilesinDir))
     userRegex = re.compile(r'[%s]' % lookingFor)
 
+    print("===============================================")
+
     # open all files and search for user supplied Regex:
+    for filetoSearch in textFilesinDir:
+        # open the file
+        openedFile = open(filetoSearch, 'r')
+
+        linesOfFile = openedFile.readline()
+
+        print("Searching \"%s\" with REGEX: %s" % (filetoSearch, lookingFor))
+        print("===============================================")
 
 
 main()
