@@ -16,3 +16,11 @@ exampleZip.extract('spam.txt', 'single_files')
 
 # close the stream
 exampleZip.close()
+
+#  CREATING ZIP FILES:
+
+# must open the file in write mode to create a zip file
+newZip = zipfile.ZipFile('new.zip', 'w')
+
+newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
+newZip.close()
