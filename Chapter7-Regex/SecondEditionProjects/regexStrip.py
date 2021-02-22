@@ -13,6 +13,7 @@ def strip(text, remove=''):
 
     # Removes character inputted as 2nd argument from ends of string
     else:
+        # using string interpolation for substitution
         remove_start = re.compile(r'^([%s]+)' % remove)
         remove_end = re.compile(r'([%s]+)$' % remove)
         start = remove_start.search(text)
