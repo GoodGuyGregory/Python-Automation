@@ -38,3 +38,5 @@ there are three ways to delete files in python
 ## Additional OS module tricks
 
 [using the os module to determine file status attributes](https://stackoverflow.com/questions/237079/how-to-get-file-creation-modification-date-times-in-python)
+
+[Comparing Unix Dates in Python G4G](https://www.geeksforgeeks.org/comparing-dates-python/)

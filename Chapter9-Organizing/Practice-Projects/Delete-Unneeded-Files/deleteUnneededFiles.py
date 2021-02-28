@@ -27,7 +27,8 @@ def deleteUnneededFiles(suppliedPath):
                 deletedFiles.append(pathForFile)
                 print(filename + 'is larger than 100mb')
 
-        #  display findings
+    #  display findings
+    if len(deletedFiles) > 0:
         print('===============================')
         print('found ' + str(len(deletedFiles)) + ' file(s)')
         print()
@@ -41,12 +42,18 @@ def deleteUnneededFiles(suppliedPath):
             print()
             print('keeping these files')
             print('exiting...')
+    else:
+        print('===============================')
+        print('no files found to be larger than 100mb')
+        print()
+        print('exiting...')
 
 
 def main():
     # directoryToSearch = input('enter a directory to search (pwd): ')
 
-    directoryToSearch = '/Users/user/Desktop'
+    # directoryToSearch = '/Users/user/Desktop'
+    directoryToSearch = input('enter a directory to search ')
 
     deleteUnneededFiles(directoryToSearch)
 
