@@ -24,7 +24,7 @@ def deleteUnneededFiles(suppliedPath):
         for filename in filenames:
             pathForFile = os.path.join(suppliedPath, folderName, filename)
             if os.path.getsize(pathForFile) > 100000000:
-                deletedFiles.append(filename)
+                deletedFiles.append(pathForFile)
                 print(filename + 'is larger than 100mb')
 
         #  display findings
@@ -35,6 +35,8 @@ def deleteUnneededFiles(suppliedPath):
         if response.lower() == 'y':
             for file in deletedFiles:
                 print('deleting ' + file)
+                # below comment actually deletes these files found
+                # os.unlink(file)
         else:
             print()
             print('keeping these files')
