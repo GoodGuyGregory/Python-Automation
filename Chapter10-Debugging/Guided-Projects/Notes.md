@@ -37,3 +37,13 @@ assertions must make a program crash if they aren't correct. Assertions are for 
 
 ## Logging instead of Printing
 
+used instead of print statements and needs to be configured after importing the `logging` module
+
+```python 
+# standard import 
+# allow for logging in your code
+import logging
+#  specify the logging details
+logging.basicConfig(level=logging.DEBUG,
+                    format=' %(asctime)s - %(levelname)s - %(message)s')
+```
