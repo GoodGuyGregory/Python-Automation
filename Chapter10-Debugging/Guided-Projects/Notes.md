@@ -35,3 +35,5 @@ reassigning of podBayDoorStatus will cause an error if the assertion is checked 
 assertions must make a program crash if they aren't correct. Assertions are for program errors not user errors
 
 
+## Logging instead of Printing
+
