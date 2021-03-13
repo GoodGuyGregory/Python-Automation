@@ -7,7 +7,6 @@ def flip():
         toss = 'heads'
     else:
         toss = 'tails'
-
     return toss
 
 
