@@ -29,10 +29,11 @@ def downloadVideoFromClipboard():
             print(f'{ytVideoLink} appears to have formatting issues')
         else:
             # # establish a stream selection by iTag
-            # stream = sextonVideo.streams.get_by_itag(22)
+            stream = desiredVideo.streams.get_by_itag(22)
             # # download the selection
-            # stream.download('./')
-            print(desiredVideo.streams.filter(res="720p")[0])
+            if stream.download('./'):
+                print(
+                    f'Video # {i + 1} {stream.title} Found at {ytVideoLink} SUCCESSFULLY Downloaded')
 
 
 downloadVideoFromClipboard()
